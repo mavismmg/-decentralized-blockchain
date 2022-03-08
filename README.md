@@ -1,6 +1,17 @@
 # general-purpose-blockchain
 A simple general purpose blockchain for my studying
 
+Mining:
+```
+{
+    "index": 9,
+    "message": "Congratulations, you just mineed a block",
+    "previous_hash": "108be51bae21a51e9dd0920287f5d14158c5a8b1bb2fb4a96178cdd8f0334724",
+    "proof": 15457,
+    "timestamp": "2022-03-08 13:34:15.618374"
+}
+```
+
 Chain results:
 ```
 {
@@ -55,16 +66,5 @@ Chain results:
         }
     ],
     "lenght": 8
-}
-```
-
-Mining block:
-```
-{
-    "index": 9,
-    "message": "Congratulations, you just mineed a block",
-    "previous_hash": "108be51bae21a51e9dd0920287f5d14158c5a8b1bb2fb4a96178cdd8f0334724",
-    "proof": 15457,
-    "timestamp": "2022-03-08 13:34:15.618374"
 }
 ```
