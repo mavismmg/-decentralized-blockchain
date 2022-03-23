@@ -24,7 +24,7 @@ class Blockchain:
                  'timestamp': str(datetime.now()),
                  'proof': proof,
                  'previous_hash': previous_hash,
-                 'transations': self.transactions}
+                 'transactions': self.transactions}
         
         self.transactions = []
         self.chain.append(block)
@@ -96,12 +96,12 @@ class Blockchain:
         max_lenght = len(self.chain)
         
         for node in network:
-            response = request.get(f'http://{node}/get_chain') # response = request.get('http://{node}/get_chain'.format(node))
+            response = requests.get(f'http://{node}/get_chain') # response = request.get('http://{node}/get_chain'.format(node))
             if response.status_code == 200:
-                length = response.json()['length']
+                lenght = response.json()['lenght']
                 chain = response.json()['chain']
-                if length > max_lenght and self.is_chain_valid(chain):
-                    max_lenght = length
+                if lenght > max_lenght and self.is_chain_valid(chain):
+                    max_lenght = lenght
                     longest_chain = chain
            
         # if longest_chain != None
@@ -124,7 +124,7 @@ if __name__ == '__main__':
         previous_proof = previous_block['proof']
         proof = blockchain.proof_of_work(previous_proof)
         previous_hash = blockchain.hash(previous_block)
-        blockchain.add_transaction(sender=node_address, receiver='Mateus', amount=10)
+        blockchain.add_transaction(sender=node_address, receiver='User02', amount=10)
         block = blockchain.create_block(proof, previous_hash)
         response = {'message': 'Congratulations, you just mineed a block',
                     'index': block['index'],
@@ -192,4 +192,4 @@ if __name__ == '__main__':
             
         return jsonify(response), 200
     
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5003)
